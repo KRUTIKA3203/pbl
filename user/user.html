@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderway User Interface</title>
+    <link rel="stylesheet" href="user-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Wonderway</h1>
+        <nav>
+            <ul>
+                <li><a href="#treks">Browse Treks</a></li>
+                <li><a href="#bookTrek">Book a Trek</a></li>
+                <li><a href="#history">Booking History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Browse Treks Section -->
+    <section id="treks" class="user-section">
+        <h2>Available Treks</h2>
+        <ul id="availableTreks"></ul>
+    </section>
+
+    <!-- Book a Trek Section -->
+    <section id="bookTrek" class="user-section">
+        <h2>Book Your Trek</h2>
+        <form id="trekBookingForm">
+            <label for="trekSelection">Select Trek:</label>
+            <select id="trekSelection" required></select>
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+
+    <!-- Booking History Section -->
+    <section id="history" class="user-section">
+        <h2>Your Booking History</h2>
+        <ul id="bookingHistory"></ul>
+    </section>
+
+    <script src="user-script.js"></script>
+</body>
+</html>

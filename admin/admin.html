@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderway Admin Panel</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Wonderway Admin Panel</h1>
+    </header>
+
+    <section class="admin-form">
+        <h2>Add New Trek</h2>
+        <form id="addTrekForm">
+            <label for="trekName">Trek Name:</label>
+            <input type="text" id="trekName" required>
+
+            <label for="difficulty">Difficulty Level:</label>
+            <select id="difficulty" required>
+                <option value="easy">Easy</option>
+                <option value="moderate">Moderate</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <label for="duration">Duration (days):</label>
+            <input type="number" id="duration" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" required></textarea>
+
+            <button type="submit">Add Trek</button>
+        </form>
+    </section>
+
+    <section id="trekList">
+        <h2>Manage Treks</h2>
+        <ul id="trekItems"></ul>
+    </section>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
