@@ -1,29 +1,36 @@
-// Mock trek data
+// Sample trek data
 const treks = [
     { name: 'Mountain Trek', difficulty: 'Moderate', duration: 5 },
     { name: 'Forest Trail', difficulty: 'Easy', duration: 3 },
-    { name: 'Desert Hike', difficulty: 'Hard', duration: 7 }
+    { name: 'Desert Hike', difficulty: 'Hard', duration: 7 },
+    { name: 'River Adventure', difficulty: 'Moderate', duration: 4 }
 ];
 
 const bookingHistory = [];
 
-// Load available treks and user history
+// Load treks and history on page load
 document.addEventListener('DOMContentLoaded', function() {
-    loadAvailableTreks();
+    loadTrekCards();
     loadBookingHistory();
 });
 
-// Load available treks
-function loadAvailableTreks() {
-    const trekList = document.getElementById('availableTreks');
+// Load available treks into cards
+function loadTrekCards() {
+    const trekCardsContainer = document.getElementById('trekCards');
     const trekSelection = document.getElementById('trekSelection');
-    treks.forEach(trek => {
-        // Display trek details in the trek list
-        const trekItem = document.createElement('li');
-        trekItem.textContent = `${trek.name} - Difficulty: ${trek.difficulty}, Duration: ${trek.duration} days`;
-        trekList.appendChild(trekItem);
 
-        // Add trek options to the booking form
+    treks.forEach(trek => {
+        // Create trek cards
+        const trekCard = document.createElement('div');
+        trekCard.classList.add('trek-card');
+        trekCard.innerHTML = `
+            <h3>${trek.name}</h3>
+            <p>Difficulty: ${trek.difficulty}</p>
+            <p>Duration: ${trek.duration} days</p>
+        `;
+        trekCardsContainer.appendChild(trekCard);
+
+        // Add trek options to booking form
         const option = document.createElement('option');
         option.value = trek.name;
         option.textContent = trek.name;
@@ -45,20 +52,25 @@ document.getElementById('trekBookingForm').addEventListener('submit', function(e
         date: new Date().toLocaleDateString()
     };
 
-    // Add the new booking to the booking history
     bookingHistory.push(newBooking);
     loadBookingHistory();
-    alert(`Trek ${trekName} successfully booked for ${fullName}`);
+    alert(`Trek ${trekName} successfully booked for ${fullName}!`);
     this.reset();
 });
 
 // Load booking history
 function loadBookingHistory() {
-    const historyList = document.getElementById('bookingHistory');
-    historyList.innerHTML = ''; // Clear existing history
-    bookingHistory.forEach(booking => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${booking.name} booked ${booking.trek} on ${booking.date}`;
-        historyList.appendChild(listItem);
-    });
+    const historyContainer = document.getElementById('bookingHistory');
+    historyContainer.innerHTML = ''; // Clear previous history
+
+    if (bookingHistory.length === 0) {
+        historyContainer.innerHTML = '<p>No bookings yet. Book your first trek!</p>';
+    } else {
+        bookingHistory.forEach(booking => {
+            const historyItem = document.createElement('div');
+            historyItem.classList.add('history-item');
+            historyItem.innerHTML = `${booking.name} booked ${booking.trek} on ${booking.date}`;
+            historyContainer.appendChild(historyItem);
+        });
+    }
 }
