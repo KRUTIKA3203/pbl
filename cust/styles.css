@@ -1,61 +1,58 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    margin: 0;
+    padding: 0;
 }
-
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #339497;
-    padding: 2rem ;
+    padding: 10px 20px;
+    color: #ffffff;
 }
-
-header .logo h1 {
-    color: rgb(255, 255, 255);
+.logo h1 {
+    margin: 0;
 }
-
-nav ul {
+.nav-items, .actions {
     display: flex;
+    align-items: center;
+}
+.nav-items ul {
     list-style-type: none;
+    display: flex;
+    gap: 20px;
 }
-
-nav ul li {
-    margin-left: 1.2rem;
-    margin-top: 0.7rem;
-}
-
-nav ul li a {
+.nav-items ul li a {
+    text-decoration: none;
     color: white;
-    text-decoration: #E64A19;
-    padding: 0.5rem 1rem;
-    background-color: #89a7b1;
-    border-radius: 18px;
 }
-
-nav ul li a:hover {
-    background-color: #2e6a6e;
+.actions a {
+    color: white;
+    margin-left: 20px;
+    position: relative;
 }
-
+.actions img {
+    width: 24px;
+    height: 24px;
+}
+.badge {
+    background-color: #838686;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 12px;
+}
 .hero {
     text-align: center;
     padding: 15%;
     font-size: 1.5rem;
-    background: url('p1.png') no-repeat center center/cover;
+    background: url('p1.jpeg') no-repeat center center/cover;
     color: white;
 }
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
 .hero button {
     padding: 0.5rem 0.7rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -66,39 +63,19 @@ nav ul li a:hover {
     border-radius: 18px;
     cursor: pointer;
 }
-
-.hero button:hover {
-    background-color: #E64A19;
-}
-
 .section {
-    padding: 2rem;
-    background-color: white;
-    margin: 1rem 0;
+    padding: 50px;
 }
-
-.section h2 {
-    margin-bottom: 1rem;
-}
-
 .grid {
     display: flex;
-    gap: 1rem;
+    gap: 20px;
 }
-
 .card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #9fa3a399;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     flex: 1;
-    text-align: center;
 }
-
-.card h3 {
-    margin-bottom: 0.5rem;
-}
-
 footer {
     text-align: center;
     padding: 1rem;
