@@ -1,129 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Wonderway - Explore Treks</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wonderway - Find Your Trail</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-            <h1>
-                <img src="logo.png" alt="Favorites" height="35.5rem">Wonderway</h1>
+  <section class="vh-100 d-flex flex-column">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://i.ibb.co/PsbSqKpk/logo.png" alt="Wonderway Logo" height="100">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Explore
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="exploreDropdown">
+                <li><a class="dropdown-item" href="#popular-trails">Popular Trails</a></li>
+                <li><a class="dropdown-item" href="#new-trails">New Trails</a></li>
+                <li><a class="dropdown-item" href="#top-rated">Top Rated</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#saved">Saved</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-light" href="#login">Log in</a>
+            </li>
+          </ul>
         </div>
-        </div>
-        <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search for trails, food, stay..." onkeyup="searchFunction()">
-        </div>
-        <nav class="nav-items">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Treks</a></li>
-                <li><a href="#">Accommodations</a></li>
-                <li><a href="#">Transportation</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="actions">
-            <!-- Favorites -->
-            <a href="#">
-                <img src="like.jpeg" alt="Favorites">
-                <span class="badge" id="fav-count">1</span>
-            </a>
-            <!-- Cart -->
-            <a href="#">
-                <img src="cart.jpg" alt=s"Cart">
-                <span class="badge" id="cart-count">1</span>
-            </a>
-            <!-- Login -->
-            <a href="#">
-                <img src="login.jpg" alt="Login">
-            </a>
-        </div>
-    </header>
+      </div>
+    </nav>
 
-    <section class="hero">
-        <h2>Find Your Next Adventure</h2>
-        <p>Discover the best trekking places, transportation, accommodations, and food options, all in one place!</p>
-        <button onclick="scrollToSection('treks')">Explore Treks</button>
-    </section>
-
-    <section id="treks" class="section">
-        <h2>Popular Trekking Places</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Mountain Trek</h3>
-                <p>Difficulty: Moderate | Duration: 5 days</p>
+    <div class="hero-section text-center text-white d-flex flex-column align-items-center justify-content-center flex-grow-1" style="background: url('https://i.ibb.co/8ttyhFr/pexels-fmaderebner-238622.jpg') no-repeat center center/cover;">
+      <h1 class="display-4">Discover Your Next Adventure</h1>
+      <p class="lead">Explore breathtaking hiking trails with Wonderway</p>
+      <div class="input-group w-50">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search by city, park, or trail name">
+        <button class="btn btn-success" onclick="searchTrails()">Search</button>
+      </div>
+      <button class="mt-3 btn btn-lg btn-success">Explore Nearby Trails</button>
+    </div>
+  </section>
+  <section class="top-trails py-5">
+    <div class="container">
+      <h2 class="mb-4">Top Trails Nearby</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card trail-card">
+            <img src="https://i.ibb.co/8ttyhFr/pexels-fmaderebner-238622.jpg" class="card-img-top" alt="Trail 1">
+            <div class="card-body">
+              <h5 class="card-title">Sinhagad Fort Trek</h5>
+              <p class="card-text text-muted">Pune, Maharashtra, India</p>
+              <p class="trail-info">⭐ 4.5 • Moderate • 7.0 km • Est. 3h</p>
             </div>
-            <div class="card">
-                <h3>Forest Trail</h3>
-                <p>Difficulty: Easy | Duration: 2 days</p>
-            </div>
-            <div class="card">
-                <h3>Desert Hike</h3>
-                <p>Difficulty: Hard | Duration: 7 days</p>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <section id="accommodations" class="section">
-        <h2>Nearby Stays</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Mountain Inn</h3>
-                <p>Distance: 5km from trek start | Type: Hostel</p>
+        <div class="col-md-3">
+          <div class="card trail-card">
+            <img src="https://i.ibb.co/Xgxr1sP/pexels-andreimike-1271619.jpg" class="card-img-top" alt="Trail 2">
+            <div class="card-body">
+              <h5 class="card-title">Rajmachi Fort Trek</h5>
+              <p class="card-text text-muted">Lonavala, Maharashtra, India</p>
+              <p class="trail-info">⭐ 4.7 • Easy • 16 km • Est. 5h</p>
             </div>
-            <div class="card">
-                <h3>Forest Lodge</h3>
-                <p>Distance: 2km from trek start | Type: Cabin</p>
-            </div>
-            <div class="card">
-                <h3>Desert Resort</h3>
-                <p>Distance: 10km from trek start | Type: Resort</p>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <section id="transport" class="section">
-        <h2>Transportation Options</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Bus Service</h3>
-                <p>Available for Mountain and Desert treks</p>
+        <div class="col-md-3">
+          <div class="card trail-card">
+            <img src="https://i.ibb.co/dwNTGsgk/istockphoto-2099770883-1024x1024.jpg" class="card-img-top" alt="Trail 3">
+            <div class="card-body">
+              <h5 class="card-title">Lohagad Fort Trek</h5>
+              <p class="card-text text-muted">Lonavala, Maharashtra, India</p>
+              <p class="trail-info">⭐ 4.6 • Easy • 5.5 km • Est. 2h 30m</p>
             </div>
-            <div class="card">
-                <h3>Taxi Service</h3>
-                <p>Customizable for any trek</p>
-            </div>
-            <div class="card">
-                <h3>Train Service</h3>
-                <p>Available for Forest trails</p>
-            </div>
+          </div>
         </div>
-    </section>
-
-    <section id="food" class="section">
-        <h2>Nearby Food Options</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Mountain Café</h3>
-                <p>Open for breakfast, lunch, and dinner</p>
+        <div class="col-md-3">
+          <div class="card trail-card">
+            <img src="https://i.ibb.co/sJ6nGqxL/istockphoto-2134108698-1024x1024.jpg" class="card-img-top" alt="Trail 4">
+            <div class="card-body">
+              <h5 class="card-title">Tikona Fort Trek</h5>
+              <p class="card-text text-muted">Pawna, Maharashtra, India</p>
+              <p class="trail-info">⭐ 4.3 • Moderate • 4.0 km • Est. 2h</p>
             </div>
-            <div class="card">
-                <h3>Forest Snacks</h3>
-                <p>Grab-and-go snacks near the trail start</p>
-            </div>
-            <div class="card">
-                <h3>Desert Dining</h3>
-                <p>Open for meals, includes vegetarian options</p>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+  <section class="container mt-5">
+    <div class="card">
+      <img src="https://i.ibb.co/Xgxr1sP/pexels-andreimike-1271619.jpg" class="card-img" alt="Hiking Trail">
+      <div class="card-img-overlay d-flex flex-column align-items-start justify-content-center">
+        <h1 class="card-title display-4 text-dark fw-bold">Guides to Nature</h1>
+        <p class="card-text lead text-dark">Introducing 200+ national park guides</p>
+        <a href="#" class="btn btn-dark btn-lg mt-3">Explore</a>
+      </div>
+    </div>
+  </section>
+  <section class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <div class="row g-3">
+          <div class="col-4">
+            <div class="card">
+              <img src="https://source.unsplash.com/400x300/?hiking,trail" class="card-img-top" alt="Hiking">
+              <div class="card-body text-white">
+                <p class="fw-bold">Hiking</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <img src="https://source.unsplash.com/400x300/?mountain,biking" class="card-img-top" alt="Mountain Biking">
+              <div class="card-body text-white">
+                <p class="fw-bold">Mountain Biking</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <img src="https://source.unsplash.com/400x300/?running,trail" class="card-img-top" alt="Running">
+              <div class="card-body text-white">
+                <p class="fw-bold">Running</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <img src="https://source.unsplash.com/400x300/?dog,hiking" class="card-img-top" alt="Dog Friendly">
+              <div class="card-body text-white">
+                <p class="fw-bold">Dog-friendly</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <img src="https://source.unsplash.com/400x300/?wheelchair,path" class="card-img-top" alt="Wheelchair Friendly">
+              <div class="card-body text-white">
+                <p class="fw-bold">Wheelchair-friendly</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <img src="https://source.unsplash.com/400x300/?road,cycling" class="card-img-top" alt="Road Biking">
+              <div class="card-body text-white">
+                <p class="fw-bold">Road Biking</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 text-center text-md-start">
+        <h2 class="fw-bold">Trails that fit your nature</h2>
+        <p>Whether you're pushing your limits or pushing a stroller, we've got you covered.</p>
+        <button class="btn btn-success">Sign up</button>
+      </div>
+    </div>
+  </section>
+  <section class="container my-5">
+    <div class="text-center">
+      <h2>About Us</h2>
+      <p>Wonderway is your ultimate companion for discovering breathtaking hiking trails, thrilling biking routes, and serene nature spots. Our goal is to help you explore the great outdoors with ease, offering detailed information about trails, accommodations, and nearby attractions.</p>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Wonderway | All Rights Reserved</p>
-    </footer>
+  <section class="container my-5">
+    <div class="text-center">
+      <h2>User Feedback</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <p>“Wonderway helped me find hidden trails I never knew existed. Amazing experience!”</p>
+          <h6>- Rohan Patel</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <p>“The best platform for hikers and adventure lovers! Super easy to use.”</p>
+          <h6>- Aisha Sharma</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <p>“I love the detailed trail descriptions. It made planning my trips so much easier!”</p>
+          <h6>- Vikram Mehta</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Wonderway. All Rights Reserved.</p>
+    <p><a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Use</a></p>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
